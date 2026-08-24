@@ -17,3 +17,7 @@ const toast=document.createElement("div");toast.className="demo-toast";document.
 function notify(message){toast.textContent=message;toast.classList.add("show");clearTimeout(window.__toastTimer);window.__toastTimer=setTimeout(()=>toast.classList.remove("show"),2600)}
 document.querySelectorAll("select").forEach(select=>select.addEventListener("change",()=>notify(`Filter applied: ${select.value}`)));
 /* Live modules provide their own PNG-only chart export and password-protected upload controls. */
+
+// Animated bottom-to-top shortcut, shared by every dashboard module.
+const backToTop=document.createElement('button');backToTop.className='back-to-top';backToTop.type='button';backToTop.setAttribute('aria-label','Back to top');backToTop.setAttribute('title','Back to top');backToTop.innerHTML='<span>↑</span>';document.body.appendChild(backToTop);
+const updateBackToTop=()=>backToTop.classList.toggle('show',window.scrollY>420);window.addEventListener('scroll',updateBackToTop,{passive:true});backToTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));updateBackToTop();
