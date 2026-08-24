@@ -1,1 +1,1778 @@
-{}
+{
+  "production": {
+    "All Fibres Overview": {
+      "kpis": [
+        [
+          "Total Tracked Production",
+          "8,337",
+          "Mn Kg"
+        ],
+        [
+          "Leading Fibre",
+          "Cotton",
+          "Largest category"
+        ],
+        [
+          "Fibre Categories",
+          "5",
+          "Tracked categories"
+        ],
+        [
+          "Fastest Growth",
+          "MMF",
+          "Latest trend"
+        ]
+      ],
+      "charts": [
+        {
+          "type": "bar",
+          "title": "Fibre Production Overview (2024–25) (Mn Kg)",
+          "labels": [
+            "Punjab",
+            "Haryana",
+            "Rajasthan",
+            "Gujarat",
+            "Maharashtra",
+            "Madhya Pradesh",
+            "Telangana",
+            "Andhra Pradesh",
+            "Karnataka",
+            "Tamil Nadu",
+            "Odisha",
+            "Others",
+            "Source",
+            "Source file",
+            "Note"
+          ],
+          "series": [
+            [
+              "2024-25 Production (lakh bales)",
+              [
+                4.14,
+                11.77,
+                17.86,
+                71.57,
+                73.73,
+                15.35,
+                57.89,
+                11.31,
+                22.73,
+                2.11,
+                8.23,
+                0.55,
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              "2025-26 Production (lakh bales, P)",
+              [
+                3.35,
+                8.8,
+                17.04,
+                67.93,
+                77.55,
+                11.64,
+                55.54,
+                16.13,
+                21.2,
+                1.82,
+                8.73,
+                0.51,
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "source": "O/o Textile Commissioner · Central Silk Board · Office of the Jute Commissioner · Basics of Animal Husbandry Statistics 2025"
+        }
+      ],
+      "insights": [
+        [
+          "Natural Fibre Scale",
+          "Cotton remains the largest tracked fibre by production volume."
+        ],
+        [
+          "Synthetic Transition",
+          "MMF capacity is expanding to serve apparel and technical-textile demand."
+        ],
+        [
+          "Diverse Fibre Base",
+          "India produces cotton, MMF, jute, silk and wool at commercial scale."
+        ],
+        [
+          "Decision-ready Comparison",
+          "The overview standardises multiple sources for quick sector comparison."
+        ]
+      ]
+    },
+    "Cotton": {
+      "kpis": [
+        [
+          "Latest Production (2025–26)",
+          "292.15",
+          "Lakh bales"
+        ],
+        [
+          "Top State",
+          "Maharashtra",
+          "72.66 lakh bales"
+        ],
+        [
+          "Total States",
+          "11",
+          "Major producers"
+        ],
+        [
+          "Global Rank",
+          "#2",
+          "World position"
+        ]
+      ],
+      "charts": [
+        {
+          "type": "line",
+          "title": "Cotton Production Trends (in lakh bales of 170 kgs each)",
+          "labels": [
+            "2014–15",
+            "2015–16",
+            "2016–17",
+            "2017–18",
+            "2018–19",
+            "2019–20",
+            "2020–21",
+            "2021–22",
+            "2022–23",
+            "2023–24",
+            "2024–25",
+            "2025–26 (P)"
+          ],
+          "series": [
+            [
+              "Production",
+              [
+                386,
+                333,
+                346,
+                371,
+                334,
+                366,
+                352,
+                312,
+                338,
+                326,
+                298,
+                292.15
+              ]
+            ]
+          ],
+          "source": "O/o Textile Commissioner"
+        },
+        {
+          "type": "grouped",
+          "title": "Cotton – State-wise Production (lakh bales of 170 kgs each)",
+          "labels": [
+            "Punjab",
+            "Haryana",
+            "Rajasthan",
+            "Gujarat",
+            "Maharashtra",
+            "Madhya Pradesh",
+            "Telangana",
+            "Andhra Pradesh",
+            "Karnataka",
+            "Tamil Nadu",
+            "Odisha",
+            "Others",
+            "Source",
+            "Source file",
+            "Note"
+          ],
+          "series": [
+            [
+              "2024-25 Production (lakh bales)",
+              [
+                4.14,
+                11.77,
+                17.86,
+                71.57,
+                73.73,
+                15.35,
+                57.89,
+                11.31,
+                22.73,
+                2.11,
+                8.23,
+                0.55,
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              "2025-26 Production (lakh bales, P)",
+              [
+                3.35,
+                8.8,
+                17.04,
+                67.93,
+                77.55,
+                11.64,
+                55.54,
+                16.13,
+                21.2,
+                1.82,
+                8.73,
+                0.51,
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "source": "O/o Textile Commissioner (P = Provisional)"
+        }
+      ],
+      "insights": [
+        [
+          "Premium Branding – Kasturi Cotton Bharat",
+          "Certified premium cotton supports freshness, whiteness, strength and fibre traceability."
+        ],
+        [
+          "Rapid Farm-to-Fashion Delivery",
+          "Integrated textile parks can reduce lead times from spinning through processing."
+        ],
+        [
+          "Zero-Duty Competitive Pricing",
+          "Trade agreements can improve price competitiveness in major export markets."
+        ],
+        [
+          "Why Choose Indian Cotton?",
+          "Ethically grown and digitally traced cotton supports global fashion supply chains."
+        ]
+      ]
+    },
+    "Silk": {
+      "kpis": [
+        [
+          "Total Production",
+          "2,15,458.1",
+          "MT"
+        ],
+        [
+          "Mulberry Share",
+          "75.67%",
+          "Dominant variety"
+        ],
+        [
+          "Varieties",
+          "4",
+          "Main types"
+        ],
+        [
+          "Growth",
+          "+5.7%",
+          "YoY change"
+        ]
+      ],
+      "charts": [
+        {
+          "type": "line",
+          "title": "Silk Production Trends (MT)",
+          "labels": [
+            "2020–21",
+            "2021–22",
+            "2022–23",
+            "2023–24",
+            "2024–25",
+            "2025–26 (Apr–Jun)"
+          ],
+          "series": [
+            [
+              "Total Raw Silk",
+              [
+                34000,
+                35100,
+                36700,
+                39000,
+                41121,
+                35400
+              ]
+            ]
+          ],
+          "source": "Central Silk Board"
+        },
+        {
+          "type": "grouped",
+          "title": "Variety-wise Silk Production Trends (MT)",
+          "labels": [
+            "2020–21",
+            "2021–22",
+            "2022–23",
+            "2023–24",
+            "2024–25",
+            "2025–26 (Apr–Jun)"
+          ],
+          "series": [
+            [
+              "Eri",
+              [
+                6900,
+                7200,
+                7200,
+                7100,
+                7700,
+                6500
+              ]
+            ],
+            [
+              "Muga",
+              [
+                650,
+                700,
+                720,
+                760,
+                821,
+                500
+              ]
+            ],
+            [
+              "Mulberry",
+              [
+                23700,
+                25700,
+                27400,
+                29700,
+                30900,
+                26600
+              ]
+            ],
+            [
+              "Tasar",
+              [
+                2500,
+                1500,
+                1300,
+                1500,
+                1700,
+                1800
+              ]
+            ]
+          ],
+          "source": "Central Silk Board"
+        },
+        {
+          "type": "grouped",
+          "title": "Silk – State-wise Production (MT)",
+          "labels": [
+            "Karnataka",
+            "Andhra Pradesh",
+            "Telangana",
+            "Tamil Nadu",
+            "Kerala",
+            "Maharashtra",
+            "Uttar Pradesh",
+            "Madhya Pradesh",
+            "Chhattisgarh",
+            "West Bengal",
+            "Bihar",
+            "Jharkhand",
+            "Odisha",
+            "Jammu & kashmir",
+            "Himachal Pradesh",
+            "Uttarakhand",
+            "Haryana",
+            "Punjab",
+            "Assam including BTC",
+            "Arunachal Pradesh",
+            "Manipur",
+            "Meghalaya",
+            "Mizoram",
+            "Nagaland",
+            "Sikkim",
+            "Tripura",
+            "Total"
+          ],
+          "series": [
+            [
+              "2018-19",
+              [
+                11592.3,
+                7481,
+                223.9,
+                2072.5,
+                16,
+                519,
+                289.1,
+                99.6,
+                348.9,
+                2393.8,
+                54.7,
+                2375.1,
+                131,
+                117.9,
+                33.9,
+                36.1,
+                0.7,
+                3.1,
+                5026.4,
+                59.5,
+                464.1,
+                1187.1,
+                92,
+                620.1,
+                0.4,
+                230,
+                35468.1
+              ]
+            ],
+            [
+              "2019-20",
+              [
+                11142.6,
+                7961.5,
+                297.4,
+                2154.4,
+                13.4,
+                427.6,
+                308.7,
+                61.2,
+                479.9,
+                2294.7,
+                55.9,
+                2401.7,
+                137.2,
+                117,
+                31,
+                40.4,
+                0.8,
+                3.3,
+                5315.6,
+                64,
+                503.8,
+                1192.1,
+                103.6,
+                600.1,
+                1,
+                110.5,
+                35819.6
+              ]
+            ],
+            [
+              "2020-21",
+              [
+                11292,
+                8422,
+                309,
+                1834,
+                7,
+                428,
+                316,
+                47,
+                300,
+                872,
+                64,
+                2185,
+                102,
+                80,
+                20,
+                25,
+                1,
+                1,
+                5462,
+                43,
+                327,
+                1213,
+                43,
+                264,
+                0.8,
+                112,
+                33770
+              ]
+            ],
+            [
+              "2021-22",
+              [
+                11191,
+                8834,
+                404,
+                2373,
+                9,
+                523,
+                355,
+                33,
+                224,
+                1632,
+                56,
+                1052,
+                108,
+                99,
+                28,
+                42,
+                0.8,
+                4,
+                5700,
+                53,
+                462,
+                1234,
+                59,
+                315,
+                0.3,
+                113,
+                34903
+              ]
+            ],
+            [
+              "2022-23",
+              [
+                11823,
+                9312,
+                462,
+                2589,
+                11,
+                620,
+                373,
+                22,
+                223,
+                1966,
+                48,
+                874,
+                130,
+                100,
+                31,
+                41,
+                0.3,
+                4,
+                5721,
+                61,
+                454,
+                1168,
+                84,
+                350,
+                0.41,
+                115,
+                36582
+              ]
+            ],
+            [
+              "2023-24",
+              [
+                12463,
+                10492,
+                565,
+                2679,
+                15,
+                764,
+                399,
+                14,
+                214,
+                2131,
+                59,
+                1127,
+                132,
+                117,
+                25,
+                42,
+                0.9,
+                4,
+                5745,
+                69,
+                83,
+                1176,
+                84,
+                399,
+                0.5,
+                116,
+                38915.4
+              ]
+            ]
+          ],
+          "source": "Indian Silk Export Promotion Council"
+        }
+      ],
+      "insights": [
+        [
+          "Global Consumer Hub",
+          "India is the world’s largest consumer of silk, sustaining a robust domestic ecosystem."
+        ],
+        [
+          "The All-Varieties Advantage",
+          "India produces Mulberry, Eri, Tasar and Muga silk."
+        ],
+        [
+          "Ahimsa & Ethical Luxury",
+          "Eri silk is harvested without harming silkworms."
+        ],
+        [
+          "GI-Tag Prestige",
+          "Indian silk benefits from recognised geographical indications."
+        ],
+        [
+          "Digital Traceability",
+          "Tracking can help buyers verify origin and quality."
+        ],
+        [
+          "Heritage & Authority",
+          "Four silks and centuries of textile mastery strengthen India’s position."
+        ]
+      ]
+    },
+    "Jute": {
+      "kpis": [
+        [
+          "Latest Raw Jute",
+          "75",
+          "Lakh bales"
+        ],
+        [
+          "Latest Jute Goods",
+          "1,043.9",
+          "Thousand MT"
+        ],
+        [
+          "Global Rank",
+          "#1",
+          "World position"
+        ],
+        [
+          "Export Potential",
+          "High",
+          "Eco-friendly"
+        ]
+      ],
+      "charts": [
+        {
+          "type": "bar",
+          "title": "Raw Jute Production Trends (in lakh bales of 180 kgs each)",
+          "labels": [
+            "2019–20",
+            "2020–21",
+            "2021–22",
+            "2022–23",
+            "2023–24",
+            "2024–25",
+            "2025–26"
+          ],
+          "series": [
+            [
+              "Production",
+              [
+                64,
+                57,
+                82,
+                83,
+                82,
+                69,
+                75
+              ]
+            ]
+          ],
+          "source": "Office of the Jute Commissioner"
+        },
+        {
+          "type": "stacked",
+          "title": "Production of Jute Goods (In 000' MT)",
+          "labels": [
+            "2019–20",
+            "2020–21",
+            "2021–22",
+            "2022–23",
+            "2023–24",
+            "2024–25",
+            "2025–26"
+          ],
+          "series": [
+            [
+              "Hessian",
+              [
+                105,
+                115,
+                120,
+                118,
+                108,
+                100,
+                102
+              ]
+            ],
+            [
+              "Sacking",
+              [
+                940,
+                745,
+                870,
+                1040,
+                1055,
+                975,
+                1150
+              ]
+            ],
+            [
+              "Others",
+              [
+                120,
+                105,
+                95,
+                90,
+                85,
+                75,
+                130
+              ]
+            ]
+          ],
+          "source": "Office of the Jute Commissioner"
+        },
+        {
+          "type": "grouped",
+          "title": "Raw Jute – State-wise Production (In 000' Bales)",
+          "labels": [
+            "West Bengal",
+            "Bihar",
+            "Assam",
+            "Others",
+            "Total"
+          ],
+          "series": [
+            [
+              "2022–23",
+              [
+                7700,
+                720,
+                650,
+                160,
+                9230
+              ]
+            ],
+            [
+              "2023–24",
+              [
+                7810,
+                930,
+                660,
+                170,
+                9570
+              ]
+            ],
+            [
+              "2024–25",
+              [
+                6900,
+                800,
+                700,
+                180,
+                8580
+              ]
+            ],
+            [
+              "2025–26",
+              [
+                6550,
+                780,
+                690,
+                200,
+                8220
+              ]
+            ]
+          ],
+          "source": "Office of the Jute Commissioner"
+        }
+      ],
+      "insights": [
+        [
+          "World’s #1 Producer",
+          "India is a leading producer of raw jute and jute goods."
+        ],
+        [
+          "End-to-End Self-Reliance",
+          "India maintains a complete cultivation-to-manufacturing value chain."
+        ],
+        [
+          "Mandatory Packaging Acts",
+          "Packaging requirements create a stable domestic demand base."
+        ],
+        [
+          "The Plastic-Ban Opportunity",
+          "Restrictions on single-use plastics can increase demand for jute bags."
+        ],
+        [
+          "Carbon-Negative Hero",
+          "Jute supports low-carbon and circular material strategies."
+        ],
+        [
+          "100% Biodegradable",
+          "Jute decomposes naturally without persistent microplastics."
+        ]
+      ]
+    },
+    "Wool": {
+      "kpis": [
+        [
+          "Latest Production",
+          "34.6",
+          "Million Kg"
+        ],
+        [
+          "Trend",
+          "+2.67%",
+          "Growth"
+        ],
+        [
+          "States & UTs",
+          "18",
+          "Tracked regions"
+        ],
+        [
+          "Global Rank",
+          "#9",
+          "World position"
+        ]
+      ],
+      "charts": [
+        {
+          "type": "area",
+          "title": "Wool Production Trends (Mn Kg)",
+          "labels": [
+            "2014–15",
+            "2015–16",
+            "2016–17",
+            "2017–18",
+            "2018–19",
+            "2019–20",
+            "2020–21",
+            "2021–22",
+            "2022–23",
+            "2023–24",
+            "2024–25"
+          ],
+          "series": [
+            [
+              "Production",
+              [
+                48.1,
+                44.2,
+                44.1,
+                42.2,
+                40.9,
+                37.7,
+                37.6,
+                34.1,
+                34.7,
+                34.7,
+                35.4
+              ]
+            ]
+          ],
+          "source": "Basics of Animal Husbandry Statistics 2025"
+        },
+        {
+          "type": "grouped",
+          "title": "Wool – State-wise Production ('000 Kg)",
+          "labels": [
+            "Rajasthan",
+            "Jammu & Kashmir",
+            "Gujarat",
+            "Himachal Pradesh",
+            "Uttarakhand",
+            "West Bengal",
+            "Haryana",
+            "Karnataka",
+            "Punjab",
+            "Others"
+          ],
+          "series": [
+            [
+              "2023–24",
+              [
+                15900,
+                7800,
+                2100,
+                1700,
+                1500,
+                900,
+                700,
+                650,
+                550,
+                1350
+              ]
+            ],
+            [
+              "2024–25",
+              [
+                16400,
+                8000,
+                2200,
+                1800,
+                1550,
+                920,
+                720,
+                680,
+                570,
+                1380
+              ]
+            ]
+          ],
+          "source": "Basics of Animal Husbandry Statistics 2025"
+        }
+      ],
+      "insights": [
+        [
+          "Global Ranking",
+          "India is the 9th-largest wool producer globally."
+        ],
+        [
+          "Regional Powerhouse",
+          "Rajasthan and Jammu & Kashmir lead domestic wool output."
+        ],
+        [
+          "The Pashmina Monopoly",
+          "Geographical indications protect premium Pashmina and Angora fibres."
+        ],
+        [
+          "The Green Frontier",
+          "Wool is renewable, biodegradable and suitable for circular fashion."
+        ]
+      ]
+    },
+    "Man-Made Fibres (MMF)": {
+      "kpis": [
+        [
+          "Latest Production",
+          "1,986.95",
+          "Mn Kg staple fibre"
+        ],
+        [
+          "Polyester Share",
+          "92.47%",
+          "Staple fibre"
+        ],
+        [
+          "The Hub",
+          "Surat",
+          "Synthetic capital"
+        ],
+        [
+          "Global Rank",
+          "#2",
+          "World position"
+        ]
+      ],
+      "charts": [
+        {
+          "type": "grouped",
+          "title": "Production of MMF Staple Fibre (Mn Kg)",
+          "labels": [
+            "2019–20",
+            "2020–21",
+            "2021–22",
+            "2022–23",
+            "2023–24 (P)",
+            "2024–25 (P)"
+          ],
+          "series": [
+            [
+              "Acrylic",
+              [
+                105,
+                82,
+                108,
+                105,
+                102,
+                104
+              ]
+            ],
+            [
+              "Polyester",
+              [
+                1220,
+                1100,
+                1510,
+                1500,
+                1360,
+                1365
+              ]
+            ],
+            [
+              "Polypropylene",
+              [
+                8,
+                7,
+                9,
+                8,
+                7,
+                8
+              ]
+            ],
+            [
+              "Viscose",
+              [
+                560,
+                450,
+                540,
+                535,
+                520,
+                525
+              ]
+            ]
+          ],
+          "source": "O/o Textile Commissioner (P = Provisional)"
+        },
+        {
+          "type": "grouped",
+          "title": "Production of Filament Yarn (Mn Kg)",
+          "labels": [
+            "2019–20",
+            "2020–21",
+            "2021–22",
+            "2022–23",
+            "2023–24 (P)",
+            "2024–25 (P)"
+          ],
+          "series": [
+            [
+              "Nylon",
+              [
+                55,
+                48,
+                62,
+                67,
+                64,
+                66
+              ]
+            ],
+            [
+              "Polyester",
+              [
+                1580,
+                1440,
+                1880,
+                1760,
+                1530,
+                1535
+              ]
+            ],
+            [
+              "Polypropylene",
+              [
+                18,
+                17,
+                20,
+                19,
+                18,
+                18
+              ]
+            ],
+            [
+              "Viscose",
+              [
+                45,
+                42,
+                51,
+                49,
+                47,
+                48
+              ]
+            ]
+          ],
+          "source": "O/o Textile Commissioner (P = Provisional)"
+        }
+      ],
+      "insights": [
+        [
+          "Export Target 2030",
+          "India is targeting strong growth in MMF textile exports."
+        ],
+        [
+          "Market Share Expansion",
+          "Synthetic fibres account for most global fibre consumption."
+        ],
+        [
+          "Technical Textiles Leadership",
+          "MMF is central to healthcare, automotive and infrastructure textiles."
+        ],
+        [
+          "Shift in Global Demand",
+          "Production is realigning toward activewear and performance apparel."
+        ],
+        [
+          "Favourable Trade Deals",
+          "New trade access can support multi-billion-dollar export opportunities."
+        ],
+        [
+          "The PLI Advantage",
+          "Production-linked incentives support MMF and technical-textile capacity."
+        ]
+      ]
+    },
+    "Handloom": {
+      "kpis": [
+        [
+          "Latest Production",
+          "4,260",
+          "Million metres"
+        ],
+        [
+          "Workforce",
+          "35.2 Lakh",
+          "Artisans"
+        ],
+        [
+          "Women Weavers",
+          "72.3%",
+          "Workforce share"
+        ],
+        [
+          "Coverage",
+          "28 States",
+          "Pan-India"
+        ]
+      ],
+      "charts": [
+        {
+          "type": "line",
+          "title": "Production of Handloom (Qty. in Million Mtrs.)",
+          "labels": [
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024"
+          ],
+          "series": [
+            [
+              "Production",
+              [
+                2000,
+                2150,
+                2300,
+                2470,
+                2640,
+                2810,
+                2960,
+                3120,
+                3280,
+                3450,
+                3600,
+                3780,
+                3940,
+                4090,
+                4260
+              ]
+            ]
+          ],
+          "note": "Figures are estimates and may change as additional data becomes available.",
+          "source": "Handloom Census & Market for Textiles & Clothing 2024 report, Textiles Committee, MoT"
+        }
+      ],
+      "insights": [
+        [
+          "Handloom: A Living Cultural Heritage",
+          "Traditional looms preserve centuries-old techniques and regional identities."
+        ],
+        [
+          "Economic Backbone of Rural India",
+          "The sector supports livelihoods for millions of artisans."
+        ],
+        [
+          "Empowering Women Weavers",
+          "Women form approximately 72.3% of the handloom workforce."
+        ],
+        [
+          "Digital Empowerment through E-Commerce",
+          "Digital platforms connect artisans directly with wider markets."
+        ]
+      ]
+    }
+  },
+  "overview": {
+    "years": {
+      "2022–23": {
+        "exports": 34.7,
+        "domestic": 128.4,
+        "market": 163.1,
+        "employment": 47.8,
+        "production": 7805,
+        "share": 3.8
+      },
+      "2023–24": {
+        "exports": 34.45,
+        "domestic": 134.5,
+        "market": 168.95,
+        "employment": 48.2,
+        "production": 8018,
+        "share": 3.9
+      },
+      "2024–25": {
+        "exports": 36.95,
+        "domestic": 144.21,
+        "market": 179.26,
+        "employment": 49,
+        "production": 8337,
+        "share": 4.1
+      }
+    },
+    "targets": [
+      {
+        "key": "exports",
+        "name": "T&A Exports",
+        "target": 100,
+        "unit": "USD Bn",
+        "year": 2030,
+        "source": "Ministry of Textiles"
+      },
+      {
+        "key": "domestic",
+        "name": "Domestic Market",
+        "target": 250,
+        "unit": "USD Bn",
+        "year": 2030,
+        "source": "Textiles Committee"
+      },
+      {
+        "key": "market",
+        "name": "Total Market",
+        "target": 350,
+        "unit": "USD Bn",
+        "year": 2030,
+        "source": "Ministry of Textiles"
+      },
+      {
+        "key": "technical",
+        "name": "Technical Textiles",
+        "current": 22,
+        "target": 40,
+        "unit": "USD Bn",
+        "year": 2030,
+        "source": "National Technical Textiles Mission"
+      },
+      {
+        "key": "share",
+        "name": "Global Share",
+        "target": 8,
+        "unit": "%",
+        "year": 2030,
+        "source": "ITC Trade Map"
+      },
+      {
+        "key": "employment",
+        "name": "Employment",
+        "target": 75,
+        "unit": "Million",
+        "year": 2030,
+        "source": "Ministry of Textiles"
+      }
+    ],
+    "sectors": {
+      "All sectors": {
+        "factor": 1,
+        "growth": 7.2
+      },
+      "Cotton": {
+        "factor": 0.34,
+        "growth": 5.8
+      },
+      "Silk": {
+        "factor": 0.08,
+        "growth": 7.6
+      },
+      "Jute": {
+        "factor": 0.11,
+        "growth": 4.2
+      },
+      "Wool": {
+        "factor": 0.05,
+        "growth": 2.7
+      },
+      "MMF": {
+        "factor": 0.29,
+        "growth": 10.4
+      },
+      "Handloom": {
+        "factor": 0.13,
+        "growth": 6.1
+      }
+    },
+    "states": [
+      [
+        "Gujarat",
+        138.4,
+        8.2,
+        "Cotton & MMF"
+      ],
+      [
+        "Maharashtra",
+        126.7,
+        6.9,
+        "Yarn & apparel"
+      ],
+      [
+        "Tamil Nadu",
+        119.8,
+        5.6,
+        "Spinning & knitwear"
+      ],
+      [
+        "West Bengal",
+        108.2,
+        4.1,
+        "Jute & handloom"
+      ],
+      [
+        "Karnataka",
+        104.9,
+        3.8,
+        "Silk & garments"
+      ]
+    ]
+  },
+  "domesticMarket": {
+    "years": [
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024"
+    ],
+    "total": [
+      170,
+      138,
+      155,
+      166,
+      170,
+      179.26
+    ],
+    "household": [
+      96,
+      76,
+      81,
+      91,
+      98,
+      104.98
+    ],
+    "exports": [
+      36,
+      31,
+      34,
+      36,
+      35,
+      35.04
+    ],
+    "nonHousehold": [
+      38,
+      31,
+      40,
+      39,
+      37,
+      39.23
+    ],
+    "segments": {
+      "Households vs Exports vs Non-Households": 1,
+      "Fibre-wise": 0.94,
+      "Major Varieties": 0.88,
+      "Gender-wise": 0.82,
+      "Income-wise": 0.9,
+      "Region-wise": 0.96,
+      "Sector of manufacture": 0.86,
+      "Value added": 0.78,
+      "Technical textile": 0.72
+    },
+    "regions": {
+      "All India": 1,
+      "North": 0.28,
+      "West": 0.25,
+      "South": 0.23,
+      "East": 0.14,
+      "Central & North-East": 0.1
+    },
+    "categories": [
+      [
+        "Apparel",
+        62.8,
+        8.2
+      ],
+      [
+        "Home Textiles",
+        43,
+        7.1
+      ],
+      [
+        "Technical Textiles",
+        32.3,
+        10.8
+      ],
+      [
+        "Yarn & Fabrics",
+        24.1,
+        5.6
+      ],
+      [
+        "Handloom & Others",
+        17.1,
+        4.3
+      ]
+    ],
+    "regionRows": [
+      [
+        "North",
+        50.2,
+        8.4,
+        "Premium apparel"
+      ],
+      [
+        "West",
+        44.8,
+        7.8,
+        "Industrial textiles"
+      ],
+      [
+        "South",
+        41.2,
+        7.1,
+        "Home textiles"
+      ],
+      [
+        "East",
+        25.1,
+        5.2,
+        "Handloom"
+      ],
+      [
+        "Central & North-East",
+        17.9,
+        9.6,
+        "Emerging demand"
+      ]
+    ],
+    "insights": [
+      [
+        "Domestic Market Momentum",
+        "Household demand remains the largest component and continues to support broad-based market expansion."
+      ],
+      [
+        "Premiumisation Signal",
+        "Organised retail and branded textile products are raising average consumer spending."
+      ],
+      [
+        "Technical Textile Opportunity",
+        "Healthcare, mobility and infrastructure uses are growing faster than conventional categories."
+      ],
+      [
+        "Regional Growth White Space",
+        "Central and North-East markets show strong growth potential from a smaller base."
+      ]
+    ]
+  },
+  "internationalTrade": {
+    "years": [
+      "2019–20",
+      "2020–21",
+      "2021–22",
+      "2022–23",
+      "2023–24",
+      "2024–25"
+    ],
+    "exports": [
+      33.6,
+      29.8,
+      41.1,
+      35.6,
+      36.7,
+      36.95
+    ],
+    "imports": [
+      7.9,
+      8.5,
+      10.4,
+      11.9,
+      10.7,
+      11.18
+    ],
+    "fibres": {
+      "All fibres": 1,
+      "Cotton": 0.42,
+      "MMF": 0.26,
+      "Silk": 0.035,
+      "Wool": 0.03,
+      "Jute": 0.05,
+      "Handloom": 0.08,
+      "Other vegetable fibres": 0.045,
+      "Carpets & rugs": 0.08
+    },
+    "markets": {
+      "All destinations": 1,
+      "United States": 0.264,
+      "European Union": 0.226,
+      "United Kingdom": 0.083,
+      "UAE": 0.067,
+      "Bangladesh": 0.052,
+      "Rest of World": 0.308
+    },
+    "chapters": [
+      [
+        "61 Knitted apparel",
+        7.8
+      ],
+      [
+        "62 Woven apparel",
+        7.1
+      ],
+      [
+        "63 Made-ups",
+        6.4
+      ],
+      [
+        "52 Cotton",
+        5.9
+      ],
+      [
+        "57 Carpets",
+        2.4
+      ],
+      [
+        "54 MMF filament",
+        2.1
+      ],
+      [
+        "55 MMF staple",
+        1.9
+      ],
+      [
+        "50 Silk",
+        0.42
+      ],
+      [
+        "51 Wool",
+        0.58
+      ],
+      [
+        "53 Other fibres",
+        0.36
+      ]
+    ],
+    "sectors": [
+      [
+        "Apparel",
+        [
+          5.5,
+          5.8,
+          6.2
+        ]
+      ],
+      [
+        "Home Textiles",
+        [
+          3.1,
+          3.4,
+          3.6
+        ]
+      ],
+      [
+        "Yarn & Fabrics",
+        [
+          2.7,
+          2.8,
+          2.9
+        ]
+      ],
+      [
+        "Made-ups",
+        [
+          2.2,
+          2.3,
+          2.5
+        ]
+      ],
+      [
+        "Technical Textiles",
+        [
+          1.1,
+          1.3,
+          1.5
+        ]
+      ]
+    ],
+    "products": [
+      [
+        "T-shirts",
+        3.8,
+        8.2
+      ],
+      [
+        "Dresses",
+        3.1,
+        7.4
+      ],
+      [
+        "Bed linen",
+        4.2,
+        5.8
+      ],
+      [
+        "Cotton yarn",
+        2.9,
+        3.1
+      ],
+      [
+        "Carpets",
+        2.4,
+        6.3
+      ],
+      [
+        "Technical textiles",
+        2.1,
+        11.6
+      ],
+      [
+        "Silk products",
+        0.54,
+        9.8
+      ],
+      [
+        "Jute goods",
+        0.88,
+        7.1
+      ]
+    ],
+    "destinations": [
+      [
+        "United States",
+        9.76,
+        26.4,
+        2.1
+      ],
+      [
+        "European Union",
+        8.34,
+        22.6,
+        1.7
+      ],
+      [
+        "United Kingdom",
+        3.08,
+        8.3,
+        4.4
+      ],
+      [
+        "UAE",
+        2.47,
+        6.7,
+        6.1
+      ],
+      [
+        "Bangladesh",
+        1.92,
+        5.2,
+        3.5
+      ],
+      [
+        "China",
+        1.33,
+        3.6,
+        -2.4
+      ],
+      [
+        "Canada",
+        1.18,
+        3.2,
+        5.2
+      ],
+      [
+        "Australia",
+        0.91,
+        2.5,
+        7.8
+      ],
+      [
+        "Japan",
+        0.69,
+        1.9,
+        6.4
+      ],
+      [
+        "Saudi Arabia",
+        0.63,
+        1.7,
+        9.3
+      ]
+    ],
+    "emerging": [
+      [
+        "Australia",
+        0.91,
+        7.8
+      ],
+      [
+        "Saudi Arabia",
+        0.63,
+        9.3
+      ],
+      [
+        "Brazil",
+        0.52,
+        12.4
+      ],
+      [
+        "Poland",
+        0.44,
+        15.1
+      ],
+      [
+        "Vietnam",
+        0.38,
+        18.6
+      ],
+      [
+        "South Africa",
+        0.34,
+        10.2
+      ],
+      [
+        "Mexico",
+        0.31,
+        16.7
+      ],
+      [
+        "Chile",
+        0.22,
+        21.4
+      ]
+    ],
+    "insights": [
+      [
+        "Export Recovery Strengthens",
+        "Apparel, made-ups and technical textiles support the latest export momentum."
+      ],
+      [
+        "Market Concentration Risk",
+        "The United States and European Union together account for nearly half of tracked exports."
+      ],
+      [
+        "High-Growth Destinations",
+        "Australia, Saudi Arabia and selected emerging markets provide diversification opportunities."
+      ],
+      [
+        "Product Opportunity",
+        "Technical textiles and premium natural-fibre products are growing faster than the total basket."
+      ],
+      [
+        "FTA Market Access",
+        "Improved tariff access can strengthen competitiveness in major developed markets."
+      ],
+      [
+        "Data-Led Export Planning",
+        "Product and destination filters help identify priority combinations for exporter support."
+      ]
+    ]
+  }
+}
