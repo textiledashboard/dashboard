@@ -141,10 +141,15 @@ body {
   }
 
   .ov-svg-host,
-  .svg-chart > svg,
   .line-chart > svg {
     width: 720px !important;
     min-width: 720px !important;
+    max-width: none !important;
+  }
+
+  .svg-chart > svg {
+    width: max(720px, var(--chart-width, 720px)) !important;
+    min-width: max(720px, var(--chart-width, 720px)) !important;
     max-width: none !important;
   }
 

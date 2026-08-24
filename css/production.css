@@ -1,1 +1,247 @@
-.production-badge{background:#e5f5f1;color:#087c73;border:1px solid #bfe2db;border-radius:20px;padding:7px 12px;font-size:9px;font-weight:700}.production-main-filter{position:sticky;top:68px;z-index:8}.production-chart-stack{display:grid;gap:16px;margin-top:16px}.production-chart{padding:22px}.production-chart .panel-head{align-items:flex-start}.svg-chart{width:100%;min-height:280px;margin-top:10px;overflow-x:auto}.svg-chart svg{display:block;width:100%;min-width:680px;height:auto}.svg-chart .grid line{stroke:#dce5e9;stroke-dasharray:4 5}.svg-chart text{fill:#6c7c86;font:10px Arial,sans-serif}.svg-chart .area{fill:rgba(0,163,149,.12)}.svg-chart .trend-line{fill:none;stroke:#0c536d;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.svg-chart circle{fill:#fff;stroke:#00a395;stroke-width:4}.svg-chart rect{fill:#0d3b52}.svg-chart .s1{fill:#00a395}.svg-chart .s2{fill:#a8d650}.svg-chart .s3{fill:#d49a5b}.svg-chart .s4{fill:#6c78a8}.chart-footer .latest{background:#00a395}.chart-footer>span#varietyLegend,.chart-footer #varietyLegend{display:flex;gap:13px;flex-wrap:wrap}.chart-footer #varietyLegend b{display:flex;align-items:center;gap:5px;font-size:8px}.chart-footer #varietyLegend i{display:inline-block;width:8px;height:8px;border-radius:2px;background:#0d3b52}.chart-footer #varietyLegend .s1{background:#00a395}.chart-footer #varietyLegend .s2{background:#a8d650}.chart-footer #varietyLegend .s3{background:#d49a5b}.production-insights{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}.production-insights article{display:grid;grid-template-columns:38px 1fr;gap:11px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}.production-insights article>span{width:38px;height:38px;display:grid;place-items:center;border-radius:9px;background:#e6f4f2;color:#008f84;font-size:17px}.production-insights h3{margin:1px 0 5px;font-size:11px}.production-insights p{margin:0;color:var(--muted);font-size:9px;line-height:1.55}@media(max-width:760px){.production-main-filter{position:static}.production-insights{grid-template-columns:1fr}.production-chart{padding:14px}.svg-chart{min-height:220px}}@media print{body.print-chart-only .app-shell,body.print-chart-only main,body.print-chart-only .content{display:block!important;margin:0!important;width:100%!important;padding:0!important}body.print-chart-only .sidebar,body.print-chart-only .topbar,body.print-chart-only .content>*{display:none!important}body.print-chart-only .content .print-target{display:block!important}.print-target .svg-chart{overflow:visible!important}.print-target .svg-chart svg{min-width:0!important}}
+.production-badge {
+    background: #e5f5f1;
+    color: #087c73;
+    border: 1px solid #bfe2db;
+    border-radius: 20px;
+    padding: 7px 12px;
+    font-size: 9px;
+    font-weight: 700
+}
+
+.production-main-filter {
+    position: sticky;
+    top: 68px;
+    z-index: 8
+}
+
+.production-chart-stack {
+    display: grid;
+    gap: 16px;
+    margin-top: 16px
+}
+
+.production-chart {
+    padding: 22px
+}
+
+.production-chart .panel-head {
+    align-items: flex-start
+}
+
+.svg-chart {
+    width: 100%;
+    min-height: 280px;
+    margin-top: 10px;
+    overflow-x: auto
+}
+
+.svg-chart svg {
+    display: block;
+    width: 100%;
+    min-width: 680px;
+    height: auto
+}
+
+.svg-chart .grid line {
+    stroke: #dce5e9;
+    stroke-dasharray: 4 5
+}
+
+.svg-chart text {
+    fill: #6c7c86;
+    font: 10px Arial, sans-serif
+}
+
+.svg-chart .area {
+    fill: rgba(0, 163, 149, .12)
+}
+
+.svg-chart .trend-line {
+    fill: none;
+    stroke: #0c536d;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
+.svg-chart circle {
+    fill: #fff;
+    stroke: #00a395;
+    stroke-width: 4
+}
+
+.svg-chart rect {
+    fill: #0d3b52
+}
+
+.svg-chart .s1 {
+    fill: #00a395
+}
+
+.svg-chart .s2 {
+    fill: #a8d650
+}
+
+.svg-chart .s3 {
+    fill: #d49a5b
+}
+
+.svg-chart .s4 {
+    fill: #6c78a8
+}
+
+.chart-footer .latest {
+    background: #00a395
+}
+
+.chart-footer>span#varietyLegend,
+.chart-footer #varietyLegend {
+    display: flex;
+    gap: 13px;
+    flex-wrap: wrap
+}
+
+.chart-footer #varietyLegend b {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 8px
+}
+
+.chart-footer #varietyLegend i {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: #0d3b52
+}
+
+.chart-footer #varietyLegend .s1 {
+    background: #00a395
+}
+
+.chart-footer #varietyLegend .s2 {
+    background: #a8d650
+}
+
+.chart-footer #varietyLegend .s3 {
+    background: #d49a5b
+}
+
+.production-insights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 16px
+}
+
+.production-insights article {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 11px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px
+}
+
+.production-insights article>span {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 9px;
+    background: #e6f4f2;
+    color: #008f84;
+    font-size: 17px
+}
+
+.production-insights h3 {
+    margin: 1px 0 5px;
+    font-size: 11px
+}
+
+.production-insights p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 9px;
+    line-height: 1.55
+}
+
+@media(max-width:760px) {
+    .production-main-filter {
+        position: static
+    }
+
+    .production-insights {
+        grid-template-columns: 1fr
+    }
+
+    .production-chart {
+        padding: 14px
+    }
+
+    .svg-chart {
+        min-height: 220px
+    }
+}
+
+@media print {
+
+    body.print-chart-only .app-shell,
+    body.print-chart-only main,
+    body.print-chart-only .content {
+        display: block !important;
+        margin: 0 !important;
+        width: 100% !important;
+        padding: 0 !important
+    }
+
+    body.print-chart-only .sidebar,
+    body.print-chart-only .topbar,
+    body.print-chart-only .content>* {
+        display: none !important
+    }
+
+    body.print-chart-only .content .print-target {
+        display: block !important
+    }
+
+    .print-target .svg-chart {
+        overflow: visible !important
+    }
+
+    .print-target .svg-chart svg {
+        min-width: 0 !important
+    }
+}
+
+.svg-chart>svg {
+    width: max(100%, var(--chart-width, 680px));
+    min-width: var(--chart-width, 680px);
+    max-width: none
+}
+
+.svg-chart {
+    scrollbar-gutter: stable
+}
+
+.svg-chart .s5 {
+    fill: #c95c9e
+}
+
+.svg-chart .s6 {
+    fill: #3484c6
+}
+
+.svg-chart .s7 {
+    fill: #ef6f61
+}
+
+.svg-chart .s8 {
+    fill: #7b9d36
+}
+
+.svg-chart .s9 {
+    fill: #8a5bb5
+}

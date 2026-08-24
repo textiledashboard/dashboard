@@ -1,62 +1,510 @@
-(function(){
-'use strict';
-const root=document.getElementById('tradeDashboard'),core=window.analyticsCore;if(!root||!core)return;
-const storageKey='revampTextile.trade.v1';
-const defaults={
- years:['2019–20','2020–21','2021–22','2022–23','2023–24','2024–25'],exports:[33.6,29.8,41.1,35.6,36.7,36.95],imports:[7.9,8.5,10.4,11.9,10.7,11.18],
- fibres:{'All fibres':1,Cotton:.42,MMF:.26,Silk:.035,Wool:.03,Jute:.05,Handloom:.08,'Other vegetable fibres':.045,'Carpets & rugs':.08},
- markets:{'All destinations':1,'United States':.264,'European Union':.226,'United Kingdom':.083,UAE:.067,Bangladesh:.052,'Rest of World':.308},
- chapters:[['61 Knitted apparel',7.8],['62 Woven apparel',7.1],['63 Made-ups',6.4],['52 Cotton',5.9],['57 Carpets',2.4],['54 MMF filament',2.1],['55 MMF staple',1.9],['50 Silk',.42],['51 Wool',.58],['53 Other fibres',.36]],
- sectors:[['Apparel',[5.5,5.8,6.2]],['Home Textiles',[3.1,3.4,3.6]],['Yarn & Fabrics',[2.7,2.8,2.9]],['Made-ups',[2.2,2.3,2.5]],['Technical Textiles',[1.1,1.3,1.5]]],
- products:[['T-shirts',3.8,8.2],['Dresses',3.1,7.4],['Bed linen',4.2,5.8],['Cotton yarn',2.9,3.1],['Carpets',2.4,6.3],['Technical textiles',2.1,11.6],['Silk products',.54,9.8],['Jute goods',.88,7.1]],
- destinations:[['United States',9.76,26.4,2.1],['European Union',8.34,22.6,1.7],['United Kingdom',3.08,8.3,4.4],['UAE',2.47,6.7,6.1],['Bangladesh',1.92,5.2,3.5],['China',1.33,3.6,-2.4],['Canada',1.18,3.2,5.2],['Australia',.91,2.5,7.8],['Japan',.69,1.9,6.4],['Saudi Arabia',.63,1.7,9.3]],
- emerging:[['Australia',.91,7.8],['Saudi Arabia',.63,9.3],['Brazil',.52,12.4],['Poland',.44,15.1],['Vietnam',.38,18.6],['South Africa',.34,10.2],['Mexico',.31,16.7],['Chile',.22,21.4]],
- insights:[['Export Recovery Strengthens','Apparel, made-ups and technical textiles support the latest export momentum.'],['Market Concentration Risk','The United States and European Union together account for nearly half of tracked exports.'],['High-Growth Destinations','Australia, Saudi Arabia and selected emerging markets provide diversification opportunities.'],['Product Opportunity','Technical textiles and premium natural-fibre products are growing faster than the total basket.'],['FTA Market Access','Improved tariff access can strengthen competitiveness in major developed markets.'],['Data-Led Export Planning','Product and destination filters help identify priority combinations for exporter support.']]
-};
-let data=JSON.parse(JSON.stringify(defaults));
-root.classList.add('analytics-live');
-root.innerHTML='<div class="analytics-head"><div><span class="overline">INTERNATIONAL TRADE INTELLIGENCE</span><h1>India Textile International Trade</h1><p>Exports, imports, product performance and destination opportunities in one decision-ready view.</p></div><div class="data-badges"><span class="official">● Official-source structure</span><span>Dummy values</span><span id="trPeriodBadge">Latest: 2024–25</span></div></div><div class="analytics-filters module-filter-bar"><label>Trade flow<select id="trFlow"><option value="export">Exports</option><option value="import">Imports</option></select></label><label>Reporting period<select id="trYear"></select></label><label>Fibre / sector<select id="trFibre"></select></label><label>Destination<select id="trMarket"></select></label><label>Display unit<select id="trUnit"><option value="bn">USD Billion</option><option value="mn">USD Million</option></select></label><button id="trReset">Reset filters</button><div class="active-filter-summary">Active selection: <b id="trActive"></b></div></div><section class="analytics-kpis" id="trKpis"></section><section class="analytics-chart-stack"><div class="analytics-chart-grid single"><article class="panel analytics-panel" id="trTotalPanel"></article></div><div class="analytics-chart-grid"><article class="panel analytics-panel" id="trChapterPanel"></article><article class="panel analytics-panel" id="trSectorPanel"></article></div><div class="analytics-chart-grid"><article class="panel analytics-panel" id="trFibrePanel"></article><article class="panel analytics-panel" id="trProductPanel"></article></div><div class="analytics-chart-grid"><article class="panel analytics-panel" id="trSegmentPanel"></article><article class="panel analytics-panel" id="trDestinationPanel"></article></div><div class="analytics-chart-grid"><article class="panel analytics-panel" id="trGrowthPanel"></article><article class="panel analytics-panel" id="trEmergingPanel"></article></div></section><section class="panel analytics-table-panel"><div class="panel-head"><div><span class="overline">DESTINATION MATRIX</span><h2>Export market performance</h2><p>Search destinations and compare export value, share and growth.</p></div><div class="analytics-table-tools"><input id="trSearch" placeholder="Search destination"></div></div><div class="analytics-table-scroll"><table><thead><tr><th>Destination</th><th>Export value</th><th>Share</th><th>YoY growth</th><th>Market signal</th></tr></thead><tbody id="trRows"></tbody></table></div></section><section class="analytics-insights" id="trInsights"></section><footer class="analytics-footer"><div><b>Source:</b> DGCI&S · ITC Trade Map · Ministry of Textiles · WTO ePing</div><span>Dummy values for functional testing</span></footer>';
-const command=document.createElement('section');command.className='analytics-command trade-command';command.innerHTML='<div><span>TRADE COMMAND CENTRE</span><h2>Follow value across borders</h2><p>Connect product strength, destination momentum and concentration risk before choosing the next export opportunity.</p></div><div class="command-metric"><small>Selected trade value</small><strong id="trCommandValue">$36.95B</strong><em id="trCommandNote">Exports · 2024–25</em></div><div class="command-orbit"><i></i><i></i><i></i></div>';root.querySelector('.analytics-head').after(command);
-const $=id=>document.getElementById(id),flow=$('trFlow'),year=$('trYear'),fibre=$('trFibre'),market=$('trMarket'),unit=$('trUnit');
-function fillFilters(){const keep={y:year.value,f:fibre.value,m:market.value};year.innerHTML=[...data.years].reverse().map(x=>'<option>'+core.esc(x)+'</option>').join('');fibre.innerHTML=Object.keys(data.fibres).map(x=>'<option>'+core.esc(x)+'</option>').join('');market.innerHTML=Object.keys(data.markets).map(x=>'<option>'+core.esc(x)+'</option>').join('');if(data.years.includes(keep.y))year.value=keep.y;if(data.fibres[keep.f])fibre.value=keep.f;if(data.markets[keep.m])market.value=keep.m}
-const factor=()=>Number(data.fibres[fibre.value]||1)*Number(data.markets[market.value]||1);
-const convert=v=>unit.value==='mn'?v*1000:v;
-const display=v=>'$'+core.fmt(convert(v))+(unit.value==='mn'?'M':'B');
-const unitName=()=>unit.value==='mn'?'USD Mn':'USD Bn';
-function panel(host,title,sub,svg,series,source){host.innerHTML='<div class="panel-head"><div><span class="overline">TRADE ANALYTICS</span><h2>'+core.esc(title)+'</h2><p>'+core.esc(sub)+'</p></div><button class="png-only">Export PNG</button></div><div class="swipe-hint">← Swipe chart horizontally →</div><div class="analytics-scroll">'+svg+'</div>'+core.legend(series)+'<div class="analytics-source">Source: '+core.esc(source)+'</div>';host.querySelector('.png-only').onclick=()=>core.exportPng(host,title);core.bind(host)}
-function seriesFactor(values,mult=1){return values.map(v=>convert(v*factor()*mult))}
-function render(){
- const idx=Math.max(0,data.years.indexOf(year.value)),f=factor(),exp=data.exports[idx]*f,imp=data.imports[idx]*f,balance=exp-imp,prev=(flow.value==='export'?data.exports:data.imports)[Math.max(0,idx-1)]*f,current=flow.value==='export'?exp:imp,growth=idx?(current-prev)/prev*100:0,top=data.destinations[0];
- $('trActive').textContent=[flow.options[flow.selectedIndex].text,year.value,fibre.value,market.value,unitName()].join(' · ');$('trPeriodBadge').textContent='Latest: '+year.value;$('trCommandValue').textContent=display(current);$('trCommandNote').textContent=flow.options[flow.selectedIndex].text+' · '+year.value;
- const cards=[['Exports',display(exp),growth,'↗'],['Imports',display(imp),(imp-data.imports[Math.max(0,idx-1)]*f)/(data.imports[Math.max(0,idx-1)]*f||1)*100,'↙'],['Trade Balance',display(balance),balance>0?1:-1,'◉'],['Top Export Market',top[0],top[2],'◎']];
- $('trKpis').innerHTML=cards.map(x=>'<article class="analytics-kpi"><span>'+x[3]+'</span><small>'+x[0]+'</small><strong>'+x[1]+'</strong><em>'+year.value+' · <b>'+(x[2]>=0?'↗ ':'↘ ')+core.fmt(Math.abs(x[2]))+'%</b></em></article>').join('');
- const labels=data.years.slice(0,idx+1),totalSeries=[{name:'Exports',values:seriesFactor(data.exports.slice(0,idx+1))},{name:'Imports',values:seriesFactor(data.imports.slice(0,idx+1))}];
- panel($('trTotalPanel'),'Total T&A Trade ('+unitName()+')','Exports, imports and trade balance over time',core.bars(labels,totalSeries),totalSeries,'DGCI&S · ITC Trade Map');
- const chapters=data.chapters.map(x=>x[0]),chapterSeries=[{name:flow.value==='export'?'Export value':'Import value',values:data.chapters.map(x=>convert(x[1]*f*(flow.value==='export'?1:.31)))}];
- panel($('trChapterPanel'),'Chapter-wise '+(flow.value==='export'?'Exports':'Imports')+' ('+unitName()+')','HS chapter performance for the selected filters',core.bars(chapters,chapterSeries),chapterSeries,'DGCI&S');
- const sectorLabels=data.sectors.map(x=>x[0]),sectorSeries=['2022–23','2023–24','2024–25'].map((name,j)=>({name,values:data.sectors.map(x=>convert(x[1][j]*f*(flow.value==='export'?1:.32)))}));
- panel($('trSectorPanel'),'Sector-wise T&A '+(flow.value==='export'?'Exports':'Imports'),'Three-period sector comparison',core.bars(sectorLabels,sectorSeries,true),sectorSeries,'DGCI&S');
- const fibreLabels=data.years.slice(Math.max(0,idx-4),idx+1),fibreSeries=[{name:'Cotton',values:seriesFactor(data.exports.slice(Math.max(0,idx-4),idx+1),.42)},{name:'MMF',values:seriesFactor(data.exports.slice(Math.max(0,idx-4),idx+1),.26)},{name:'Apparel',values:seriesFactor(data.exports.slice(Math.max(0,idx-4),idx+1),.35)},{name:'Other fibres',values:seriesFactor(data.exports.slice(Math.max(0,idx-4),idx+1),.12)}];
- panel($('trFibrePanel'),'Exports by Fibre – Five-Year Trend','Selected fibre groups in '+unitName(),core.line(fibreLabels,fibreSeries),fibreSeries,'ITC Trade Map · DGCI&S');
- const productLabels=data.products.map(x=>x[0]),productSeries=[{name:'Export value',values:data.products.map(x=>convert(x[1]*f))}];
- panel($('trProductPanel'),'Product-wise Export Trends','Leading product groups for the selected market',core.bars(productLabels,productSeries),productSeries,'DGCI&S');
- const segmentSeries=[{name:'Domestic raw material',values:data.sectors.map(x=>convert(x[1][2]*f*.58))},{name:'Imported inputs',values:data.sectors.map(x=>convert(x[1][2]*f*.17))},{name:'Value added',values:data.sectors.map(x=>convert(x[1][2]*f*.25))}];
- panel($('trSegmentPanel'),'Segment-wise Export Trends','Value-chain composition by sector',core.bars(sectorLabels,segmentSeries,true),segmentSeries,'Illustrative segment allocation');
- const destinationRows=data.destinations.slice(0,8),destinationSeries=[{name:'Export value',values:destinationRows.map(x=>convert(x[1]*f))}];
- panel($('trDestinationPanel'),"India's Major Export Destinations",'Top destination markets by export value',core.bars(destinationRows.map(x=>x[0]),destinationSeries),destinationSeries,'ITC Trade Map');
- const growthRows=[...data.destinations].sort((a,b)=>b[3]-a[3]).slice(0,8),growthSeries=[{name:'Export value',values:growthRows.map(x=>convert(x[1]*f))}];
- panel($('trGrowthPanel'),'Top Destinations with High Growth','Markets ranked by positive annual movement',core.bars(growthRows.map(x=>x[0]),growthSeries),growthSeries,'ITC Trade Map');
- const emergingSeries=[{name:'Export value',values:data.emerging.map(x=>convert(x[1]*f))}];
- panel($('trEmergingPanel'),'Emerging Export Destinations','Smaller markets with high growth potential',core.bars(data.emerging.map(x=>x[0]),emergingSeries),emergingSeries,'ITC Trade Map');
- renderRows();$('trInsights').innerHTML=data.insights.map((x,i)=>'<article><span>'+['↗','◎','⌖','◒','⚡','▤'][i%6]+'</span><div><h3>'+core.esc(x[0])+'</h3><p>'+core.esc(x[1])+'</p></div></article>').join('')
-}
-function renderRows(){const q=$('trSearch').value.toLowerCase(),ff=factor();$('trRows').innerHTML=data.destinations.filter(x=>x[0].toLowerCase().includes(q)).map(x=>'<tr><td>'+core.esc(x[0])+'</td><td>'+display(x[1]*ff)+'</td><td>'+core.fmt(x[2])+'%</td><td class="'+(x[3]>=0?'growth-up':'growth-down')+'">'+(x[3]>=0?'+':'')+core.fmt(x[3])+'%</td><td>'+(x[3]>=8?'High growth':x[3]>=3?'Opportunity':x[3]>=0?'Stable':'Watch')+'</td></tr>').join('')}
-function save(){localStorage.setItem(storageKey,JSON.stringify(data))}
-function importAll(payload){if(!payload||typeof payload!=='object')throw new Error('Invalid International Trade data');data=Object.assign(JSON.parse(JSON.stringify(defaults)),payload);save();fillFilters();render()}
-function updateFromRows(rows){if(!rows.length)throw new Error('International Trade file is empty');const cols=Object.keys(rows[0]),find=re=>cols.find(c=>re.test(c)),y=find(/^year$|period/i),e=find(/^exports?$|export.*value/i),i=find(/^imports?$|import.*value/i);if(!y||(!e&&!i))throw new Error('Trade file needs Year and Export or Import columns.');data.years=rows.map(r=>String(r[y]));if(e)data.exports=rows.map(r=>Number(r[e])||0);if(i)data.imports=rows.map(r=>Number(r[i])||0);save();fillFilters();render()}
-[flow,year,fibre,market,unit].forEach(x=>x.onchange=render);$('trReset').onclick=()=>{flow.selectedIndex=0;year.selectedIndex=0;fibre.selectedIndex=0;market.selectedIndex=0;unit.selectedIndex=0;render()};$('trSearch').oninput=renderRows;
-window.tradeDashboard={getData:()=>JSON.parse(JSON.stringify(data)),importAll,updateFromRows,reset:()=>{data=JSON.parse(JSON.stringify(defaults));localStorage.removeItem(storageKey);fillFilters();render()}};
-try{const saved=JSON.parse(localStorage.getItem(storageKey)||'null');if(saved)data=Object.assign(data,saved)}catch(e){}
-fillFilters();render();
-fetch('data.json?ts='+Date.now(),{cache:'no-store'}).then(r=>r.ok?r.json():null).then(p=>{if(p?.internationalTrade)importAll(p.internationalTrade)}).catch(()=>{});
+(function () {
+  "use strict";
+  const root = document.getElementById("tradeDashboard"),
+    core = window.analyticsCore;
+  if (!root || !core) return;
+  const storageKey = "revampTextile.trade.v1";
+  const defaults = {
+    years: ["2019–20", "2020–21", "2021–22", "2022–23", "2023–24", "2024–25"],
+    exports: [33.6, 29.8, 41.1, 35.6, 36.7, 36.95],
+    imports: [7.9, 8.5, 10.4, 11.9, 10.7, 11.18],
+    fibres: {
+      "All fibres": 1,
+      Cotton: 0.42,
+      MMF: 0.26,
+      Silk: 0.035,
+      Wool: 0.03,
+      Jute: 0.05,
+      Handloom: 0.08,
+      "Other vegetable fibres": 0.045,
+      "Carpets & rugs": 0.08,
+    },
+    markets: {
+      "All destinations": 1,
+      "United States": 0.264,
+      "European Union": 0.226,
+      "United Kingdom": 0.083,
+      UAE: 0.067,
+      Bangladesh: 0.052,
+      "Rest of World": 0.308,
+    },
+    chapters: [
+      ["61 Knitted apparel", 7.8],
+      ["62 Woven apparel", 7.1],
+      ["63 Made-ups", 6.4],
+      ["52 Cotton", 5.9],
+      ["57 Carpets", 2.4],
+      ["54 MMF filament", 2.1],
+      ["55 MMF staple", 1.9],
+      ["50 Silk", 0.42],
+      ["51 Wool", 0.58],
+      ["53 Other fibres", 0.36],
+    ],
+    sectors: [
+      ["Apparel", [5.5, 5.8, 6.2]],
+      ["Home Textiles", [3.1, 3.4, 3.6]],
+      ["Yarn & Fabrics", [2.7, 2.8, 2.9]],
+      ["Made-ups", [2.2, 2.3, 2.5]],
+      ["Technical Textiles", [1.1, 1.3, 1.5]],
+    ],
+    products: [
+      ["T-shirts", 3.8, 8.2],
+      ["Dresses", 3.1, 7.4],
+      ["Bed linen", 4.2, 5.8],
+      ["Cotton yarn", 2.9, 3.1],
+      ["Carpets", 2.4, 6.3],
+      ["Technical textiles", 2.1, 11.6],
+      ["Silk products", 0.54, 9.8],
+      ["Jute goods", 0.88, 7.1],
+    ],
+    destinations: [
+      ["United States", 9.76, 26.4, 2.1],
+      ["European Union", 8.34, 22.6, 1.7],
+      ["United Kingdom", 3.08, 8.3, 4.4],
+      ["UAE", 2.47, 6.7, 6.1],
+      ["Bangladesh", 1.92, 5.2, 3.5],
+      ["China", 1.33, 3.6, -2.4],
+      ["Canada", 1.18, 3.2, 5.2],
+      ["Australia", 0.91, 2.5, 7.8],
+      ["Japan", 0.69, 1.9, 6.4],
+      ["Saudi Arabia", 0.63, 1.7, 9.3],
+    ],
+    emerging: [
+      ["Australia", 0.91, 7.8],
+      ["Saudi Arabia", 0.63, 9.3],
+      ["Brazil", 0.52, 12.4],
+      ["Poland", 0.44, 15.1],
+      ["Vietnam", 0.38, 18.6],
+      ["South Africa", 0.34, 10.2],
+      ["Mexico", 0.31, 16.7],
+      ["Chile", 0.22, 21.4],
+    ],
+    insights: [
+      [
+        "Export Recovery Strengthens",
+        "Apparel, made-ups and technical textiles support the latest export momentum.",
+      ],
+      [
+        "Market Concentration Risk",
+        "The United States and European Union together account for nearly half of tracked exports.",
+      ],
+      [
+        "High-Growth Destinations",
+        "Australia, Saudi Arabia and selected emerging markets provide diversification opportunities.",
+      ],
+      [
+        "Product Opportunity",
+        "Technical textiles and premium natural-fibre products are growing faster than the total basket.",
+      ],
+      [
+        "FTA Market Access",
+        "Improved tariff access can strengthen competitiveness in major developed markets.",
+      ],
+      [
+        "Data-Led Export Planning",
+        "Product and destination filters help identify priority combinations for exporter support.",
+      ],
+    ],
+  };
+  let data = JSON.parse(JSON.stringify(defaults));
+  root.classList.add("analytics-live");
+  root.innerHTML =
+    '<div class="analytics-head"><div><span class="overline">INTERNATIONAL TRADE INTELLIGENCE</span><h1>India Textile International Trade</h1><p>Exports, imports, product performance and destination opportunities in one decision-ready view.</p></div><div class="data-badges"><span class="official">● Official-source structure</span><span>Dummy values</span><span id="trPeriodBadge">Latest: 2024–25</span></div></div><div class="analytics-filters module-filter-bar"><label>Trade flow<select id="trFlow"><option value="export">Exports</option><option value="import">Imports</option></select></label><label>Reporting period<select id="trYear"></select></label><label>Fibre / sector<select id="trFibre"></select></label><label>Destination<select id="trMarket"></select></label><label>Display unit<select id="trUnit"><option value="bn">USD Billion</option><option value="mn">USD Million</option></select></label><button id="trReset">Reset filters</button><div class="active-filter-summary">Active selection: <b id="trActive"></b></div></div><section class="analytics-kpis" id="trKpis"></section><section class="analytics-chart-stack"><div class="analytics-chart-grid single"><article class="panel analytics-panel" id="trTotalPanel"></article></div><div class="analytics-chart-grid"><article class="panel analytics-panel" id="trChapterPanel"></article><article class="panel analytics-panel" id="trSectorPanel"></article></div><div class="analytics-chart-grid"><article class="panel analytics-panel" id="trFibrePanel"></article><article class="panel analytics-panel" id="trProductPanel"></article></div><div class="analytics-chart-grid"><article class="panel analytics-panel" id="trSegmentPanel"></article><article class="panel analytics-panel" id="trDestinationPanel"></article></div><div class="analytics-chart-grid"><article class="panel analytics-panel" id="trGrowthPanel"></article><article class="panel analytics-panel" id="trEmergingPanel"></article></div></section><section class="panel analytics-table-panel"><div class="panel-head"><div><span class="overline">DESTINATION MATRIX</span><h2>Export market performance</h2><p>Search destinations and compare export value, share and growth.</p></div><div class="analytics-table-tools"><input id="trSearch" placeholder="Search destination"></div></div><div class="analytics-table-scroll"><table><thead><tr><th>Destination</th><th>Export value</th><th>Share</th><th>YoY growth</th><th>Market signal</th></tr></thead><tbody id="trRows"></tbody></table></div></section><section class="analytics-insights" id="trInsights"></section><footer class="analytics-footer"><div><b>Source:</b> DGCI&S · ITC Trade Map · Ministry of Textiles · WTO ePing</div><span>Dummy values for functional testing</span></footer>';
+  const command = document.createElement("section");
+  command.className = "analytics-command trade-command";
+  command.innerHTML =
+    '<div><span>TRADE COMMAND CENTRE</span><h2>Follow value across borders</h2><p>Connect product strength, destination momentum and concentration risk before choosing the next export opportunity.</p></div><div class="command-metric"><small>Selected trade value</small><strong id="trCommandValue">$36.95B</strong><em id="trCommandNote">Exports · 2024–25</em></div><div class="command-orbit"><i></i><i></i><i></i></div>';
+  root.querySelector(".analytics-head").after(command);
+  const $ = (id) => document.getElementById(id),
+    flow = $("trFlow"),
+    year = $("trYear"),
+    fibre = $("trFibre"),
+    market = $("trMarket"),
+    unit = $("trUnit");
+  function fillFilters() {
+    const keep = { y: year.value, f: fibre.value, m: market.value };
+    year.innerHTML = [...data.years]
+      .reverse()
+      .map((x) => "<option>" + core.esc(x) + "</option>")
+      .join("");
+    fibre.innerHTML = Object.keys(data.fibres)
+      .map((x) => "<option>" + core.esc(x) + "</option>")
+      .join("");
+    market.innerHTML = Object.keys(data.markets)
+      .map((x) => "<option>" + core.esc(x) + "</option>")
+      .join("");
+    if (data.years.includes(keep.y)) year.value = keep.y;
+    if (data.fibres[keep.f]) fibre.value = keep.f;
+    if (data.markets[keep.m]) market.value = keep.m;
+  }
+  const factor = () =>
+    Number(data.fibres[fibre.value] || 1) *
+    Number(data.markets[market.value] || 1);
+  const convert = (v) => (unit.value === "mn" ? v * 1000 : v);
+  const display = (v) =>
+    "$" + core.fmt(convert(v)) + (unit.value === "mn" ? "M" : "B");
+  const unitName = () => (unit.value === "mn" ? "USD Mn" : "USD Bn");
+  function panel(host, title, sub, svg, series, source) {
+    host.innerHTML =
+      '<div class="panel-head"><div><span class="overline">TRADE ANALYTICS</span><h2>' +
+      core.esc(title) +
+      "</h2><p>" +
+      core.esc(sub) +
+      '</p></div><button class="png-only">Export PNG</button></div><div class="swipe-hint">← Swipe chart horizontally →</div><div class="analytics-scroll">' +
+      svg +
+      "</div>" +
+      core.legend(series) +
+      '<div class="analytics-source">Source: ' +
+      core.esc(source) +
+      "</div>";
+    host.querySelector(".png-only").onclick = () => core.exportPng(host, title);
+    core.bind(host);
+  }
+  function seriesFactor(values, mult = 1) {
+    return values.map((v) => convert(v * factor() * mult));
+  }
+  function render() {
+    const idx = Math.max(0, data.years.indexOf(year.value)),
+      f = factor(),
+      exp = data.exports[idx] * f,
+      imp = data.imports[idx] * f,
+      balance = exp - imp,
+      prev =
+        (flow.value === "export" ? data.exports : data.imports)[
+          Math.max(0, idx - 1)
+        ] * f,
+      current = flow.value === "export" ? exp : imp,
+      growth = idx ? ((current - prev) / prev) * 100 : 0,
+      top = data.destinations[0];
+    $("trActive").textContent = [
+      flow.options[flow.selectedIndex].text,
+      year.value,
+      fibre.value,
+      market.value,
+      unitName(),
+    ].join(" · ");
+    $("trPeriodBadge").textContent = "Latest: " + year.value;
+    $("trCommandValue").textContent = display(current);
+    $("trCommandNote").textContent =
+      flow.options[flow.selectedIndex].text + " · " + year.value;
+    const cards = [
+      ["Exports", display(exp), growth, "↗"],
+      [
+        "Imports",
+        display(imp),
+        ((imp - data.imports[Math.max(0, idx - 1)] * f) /
+          (data.imports[Math.max(0, idx - 1)] * f || 1)) *
+          100,
+        "↙",
+      ],
+      ["Trade Balance", display(balance), balance > 0 ? 1 : -1, "◉"],
+      ["Top Export Market", top[0], top[2], "◎"],
+    ];
+    $("trKpis").innerHTML = cards
+      .map(
+        (x) =>
+          '<article class="analytics-kpi"><span>' +
+          x[3] +
+          "</span><small>" +
+          x[0] +
+          "</small><strong>" +
+          x[1] +
+          "</strong><em>" +
+          year.value +
+          " · <b>" +
+          (x[2] >= 0 ? "↗ " : "↘ ") +
+          core.fmt(Math.abs(x[2])) +
+          "%</b></em></article>",
+      )
+      .join("");
+    const labels = data.years.slice(0, idx + 1),
+      totalSeries = [
+        {
+          name: "Exports",
+          values: seriesFactor(data.exports.slice(0, idx + 1)),
+        },
+        {
+          name: "Imports",
+          values: seriesFactor(data.imports.slice(0, idx + 1)),
+        },
+      ];
+    panel(
+      $("trTotalPanel"),
+      "Total T&A Trade (" + unitName() + ")",
+      "Exports, imports and trade balance over time",
+      core.bars(labels, totalSeries),
+      totalSeries,
+      "DGCI&S · ITC Trade Map",
+    );
+    const chapters = data.chapters.map((x) => x[0]),
+      chapterSeries = [
+        {
+          name: flow.value === "export" ? "Export value" : "Import value",
+          values: data.chapters.map((x) =>
+            convert(x[1] * f * (flow.value === "export" ? 1 : 0.31)),
+          ),
+        },
+      ];
+    panel(
+      $("trChapterPanel"),
+      "Chapter-wise " +
+        (flow.value === "export" ? "Exports" : "Imports") +
+        " (" +
+        unitName() +
+        ")",
+      "HS chapter performance for the selected filters",
+      core.bars(chapters, chapterSeries),
+      chapterSeries,
+      "DGCI&S",
+    );
+    const sectorLabels = data.sectors.map((x) => x[0]),
+      sectorSeries = ["2022–23", "2023–24", "2024–25"].map((name, j) => ({
+        name,
+        values: data.sectors.map((x) =>
+          convert(x[1][j] * f * (flow.value === "export" ? 1 : 0.32)),
+        ),
+      }));
+    panel(
+      $("trSectorPanel"),
+      "Sector-wise T&A " + (flow.value === "export" ? "Exports" : "Imports"),
+      "Three-period sector comparison",
+      core.bars(sectorLabels, sectorSeries, true),
+      sectorSeries,
+      "DGCI&S",
+    );
+    const fibreLabels = data.years.slice(Math.max(0, idx - 4), idx + 1),
+      fibreSeries = [
+        {
+          name: "Cotton",
+          values: seriesFactor(
+            data.exports.slice(Math.max(0, idx - 4), idx + 1),
+            0.42,
+          ),
+        },
+        {
+          name: "MMF",
+          values: seriesFactor(
+            data.exports.slice(Math.max(0, idx - 4), idx + 1),
+            0.26,
+          ),
+        },
+        {
+          name: "Apparel",
+          values: seriesFactor(
+            data.exports.slice(Math.max(0, idx - 4), idx + 1),
+            0.35,
+          ),
+        },
+        {
+          name: "Other fibres",
+          values: seriesFactor(
+            data.exports.slice(Math.max(0, idx - 4), idx + 1),
+            0.12,
+          ),
+        },
+      ];
+    panel(
+      $("trFibrePanel"),
+      "Exports by Fibre – Five-Year Trend",
+      "Selected fibre groups in " + unitName(),
+      core.line(fibreLabels, fibreSeries),
+      fibreSeries,
+      "ITC Trade Map · DGCI&S",
+    );
+    const productLabels = data.products.map((x) => x[0]),
+      productSeries = [
+        {
+          name: "Export value",
+          values: data.products.map((x) => convert(x[1] * f)),
+        },
+      ];
+    panel(
+      $("trProductPanel"),
+      "Product-wise Export Trends",
+      "Leading product groups for the selected market",
+      core.bars(productLabels, productSeries),
+      productSeries,
+      "DGCI&S",
+    );
+    const segmentSeries = [
+      {
+        name: "Domestic raw material",
+        values: data.sectors.map((x) => convert(x[1][2] * f * 0.58)),
+      },
+      {
+        name: "Imported inputs",
+        values: data.sectors.map((x) => convert(x[1][2] * f * 0.17)),
+      },
+      {
+        name: "Value added",
+        values: data.sectors.map((x) => convert(x[1][2] * f * 0.25)),
+      },
+    ];
+    panel(
+      $("trSegmentPanel"),
+      "Segment-wise Export Trends",
+      "Value-chain composition by sector",
+      core.bars(sectorLabels, segmentSeries, true),
+      segmentSeries,
+      "Illustrative segment allocation",
+    );
+    const destinationRows = data.destinations.slice(0, 8),
+      destinationSeries = [
+        {
+          name: "Export value",
+          values: destinationRows.map((x) => convert(x[1] * f)),
+        },
+      ];
+    panel(
+      $("trDestinationPanel"),
+      "India's Major Export Destinations",
+      "Top destination markets by export value",
+      core.bars(
+        destinationRows.map((x) => x[0]),
+        destinationSeries,
+      ),
+      destinationSeries,
+      "ITC Trade Map",
+    );
+    const growthRows = [...data.destinations]
+        .sort((a, b) => b[3] - a[3])
+        .slice(0, 8),
+      growthSeries = [
+        {
+          name: "Export value",
+          values: growthRows.map((x) => convert(x[1] * f)),
+        },
+      ];
+    panel(
+      $("trGrowthPanel"),
+      "Top Destinations with High Growth",
+      "Markets ranked by positive annual movement",
+      core.bars(
+        growthRows.map((x) => x[0]),
+        growthSeries,
+      ),
+      growthSeries,
+      "ITC Trade Map",
+    );
+    const emergingSeries = [
+      {
+        name: "Export value",
+        values: data.emerging.map((x) => convert(x[1] * f)),
+      },
+    ];
+    panel(
+      $("trEmergingPanel"),
+      "Emerging Export Destinations",
+      "Smaller markets with high growth potential",
+      core.bars(
+        data.emerging.map((x) => x[0]),
+        emergingSeries,
+      ),
+      emergingSeries,
+      "ITC Trade Map",
+    );
+    renderRows();
+    $("trInsights").innerHTML = data.insights
+      .map(
+        (x, i) =>
+          "<article><span>" +
+          ["↗", "◎", "⌖", "◒", "⚡", "▤"][i % 6] +
+          "</span><div><h3>" +
+          core.esc(x[0]) +
+          "</h3><p>" +
+          core.esc(x[1]) +
+          "</p></div></article>",
+      )
+      .join("");
+  }
+  function renderRows() {
+    const q = $("trSearch").value.toLowerCase(),
+      ff = factor();
+    $("trRows").innerHTML = data.destinations
+      .filter((x) => x[0].toLowerCase().includes(q))
+      .map(
+        (x) =>
+          "<tr><td>" +
+          core.esc(x[0]) +
+          "</td><td>" +
+          display(x[1] * ff) +
+          "</td><td>" +
+          core.fmt(x[2]) +
+          '%</td><td class="' +
+          (x[3] >= 0 ? "growth-up" : "growth-down") +
+          '">' +
+          (x[3] >= 0 ? "+" : "") +
+          core.fmt(x[3]) +
+          "%</td><td>" +
+          (x[3] >= 8
+            ? "High growth"
+            : x[3] >= 3
+              ? "Opportunity"
+              : x[3] >= 0
+                ? "Stable"
+                : "Watch") +
+          "</td></tr>",
+      )
+      .join("");
+  }
+  function save() {
+    localStorage.setItem(storageKey, JSON.stringify(data));
+  }
+  function importAll(payload) {
+    if (!payload || typeof payload !== "object")
+      throw new Error("Invalid International Trade data");
+    data = Object.assign(JSON.parse(JSON.stringify(defaults)), payload);
+    save();
+    fillFilters();
+    render();
+  }
+  function updateFromRows(rows) {
+    if (!rows.length) throw new Error("International Trade file is empty");
+    const cols = Object.keys(rows[0]),
+      find = (re) => cols.find((c) => re.test(c)),
+      y = find(/^year$|period/i),
+      e = find(/^exports?$|export.*value/i),
+      i = find(/^imports?$|import.*value/i);
+    if (!y || (!e && !i))
+      throw new Error("Trade file needs Year and Export or Import columns.");
+    data.years = rows.map((r) => String(r[y]));
+    if (e) data.exports = rows.map((r) => Number(r[e]) || 0);
+    if (i) data.imports = rows.map((r) => Number(r[i]) || 0);
+    save();
+    fillFilters();
+    render();
+  }
+  [flow, year, fibre, market, unit].forEach((x) => (x.onchange = render));
+  $("trReset").onclick = () => {
+    flow.selectedIndex = 0;
+    year.selectedIndex = 0;
+    fibre.selectedIndex = 0;
+    market.selectedIndex = 0;
+    unit.selectedIndex = 0;
+    render();
+  };
+  $("trSearch").oninput = renderRows;
+  window.tradeDashboard = {
+    getData: () => JSON.parse(JSON.stringify(data)),
+    importAll,
+    updateFromRows,
+    reset: () => {
+      data = JSON.parse(JSON.stringify(defaults));
+      localStorage.removeItem(storageKey);
+      fillFilters();
+      render();
+    },
+  };
+  try {
+    const saved = JSON.parse(localStorage.getItem(storageKey) || "null");
+    if (saved) data = Object.assign(data, saved);
+  } catch (e) {}
+  fillFilters();
+  render();
+  fetch("data.json?ts=" + Date.now(), { cache: "no-store" })
+    .then((r) => (r.ok ? r.json() : null))
+    .then((p) => {
+      if (p?.internationalTrade) importAll(p.internationalTrade);
+    })
+    .catch(() => {});
 })();

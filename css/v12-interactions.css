@@ -1,31 +1,388 @@
-.production-chart{position:relative}
-.svg-chart [data-tip]{cursor:crosshair;transition:opacity .15s,filter .15s,stroke-width .15s}
-.svg-chart .mark-hover{filter:brightness(1.2);opacity:.86;stroke:#082c3e;stroke-width:2}
-.svg-chart circle.mark-hover{r:8;stroke:#a8d650;stroke-width:5}
-.svg-chart .y-tick{font-weight:700;fill:#506674}
-.svg-chart .stack-grid{stroke:#dce5e9;stroke-dasharray:4 5}
-.chart-hover-tip{position:absolute;z-index:15;display:none;pointer-events:none;background:#082c3e;color:#fff;border:1px solid rgba(168,214,80,.6);box-shadow:0 8px 22px rgba(8,44,62,.24);padding:7px 10px;border-radius:7px;font-size:9px;line-height:1.3;white-space:nowrap}
-.chart-hover-tip.show{display:block}
-.upload-panel{display:none!important}
-.construction-page{min-height:calc(100vh - 70px);display:grid;place-items:center;padding:34px}
-.construction-card{position:relative;overflow:hidden;width:min(820px,100%);padding:58px 50px;text-align:center;border:1px solid #dce4ea;border-radius:24px;background:linear-gradient(145deg,#fff,#f0f7f6);box-shadow:0 24px 60px rgba(15,41,66,.12)}
-.construction-card:before,.construction-card:after{content:"";position:absolute;border-radius:50%;filter:blur(2px)}.construction-card:before{width:210px;height:210px;right:-80px;top:-85px;background:rgba(0,163,149,.12)}.construction-card:after{width:170px;height:170px;left:-75px;bottom:-80px;background:rgba(168,214,80,.16)}
-.craft-icon{position:relative;margin:0 auto 22px;width:82px;height:82px;border-radius:24px;display:grid;place-items:center;background:#0b2940;color:#b6e25c;font-size:34px;box-shadow:0 12px 26px rgba(11,41,64,.2)}
-.construction-card .overline{display:block;margin-bottom:10px}.construction-card h1{position:relative;font-size:34px;line-height:1.15;letter-spacing:-1px;margin:0;color:#0f2942}.construction-card h1 span{color:#008f84}.construction-card>p{position:relative;max-width:570px;margin:16px auto 25px;color:#66778a;font-size:13px;line-height:1.7}
-.craft-progress{position:relative;max-width:430px;margin:0 auto}.craft-progress>div{height:8px;background:#dfe9e9;border-radius:10px;overflow:hidden}.craft-progress i{display:block;width:68%;height:100%;border-radius:10px;background:linear-gradient(90deg,#00a395,#a8d650);animation:craftPulse 2.4s ease-in-out infinite}.craft-progress p{display:flex;justify-content:space-between;margin:8px 0 0;font-size:9px;color:#66808b}.craft-tags{position:relative;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:27px}.craft-tags span{padding:7px 10px;border:1px solid #d7e5e5;border-radius:20px;background:#fff;color:#375665;font-size:9px;font-weight:700}
-@keyframes craftPulse{0%,100%{width:58%;opacity:.8}50%{width:78%;opacity:1}}
-@media(max-width:600px){.construction-page{padding:18px}.construction-card{padding:42px 20px}.construction-card h1{font-size:26px}.chart-hover-tip{max-width:210px;white-space:normal}}
+.production-chart {
+    position: relative
+}
+
+.svg-chart [data-tip] {
+    cursor: crosshair;
+    transition: opacity .15s, filter .15s, stroke-width .15s
+}
+
+.svg-chart .mark-hover {
+    filter: brightness(1.2);
+    opacity: .86;
+    stroke: #082c3e;
+    stroke-width: 2
+}
+
+.svg-chart circle.mark-hover {
+    r: 8;
+    stroke: #a8d650;
+    stroke-width: 5
+}
+
+.svg-chart .y-tick {
+    font-weight: 700;
+    fill: #506674
+}
+
+.svg-chart .stack-grid {
+    stroke: #dce5e9;
+    stroke-dasharray: 4 5
+}
+
+.chart-hover-tip {
+    position: absolute;
+    z-index: 15;
+    display: none;
+    pointer-events: none;
+    background: #082c3e;
+    color: #fff;
+    border: 1px solid rgba(168, 214, 80, .6);
+    box-shadow: 0 8px 22px rgba(8, 44, 62, .24);
+    padding: 7px 10px;
+    border-radius: 7px;
+    font-size: 9px;
+    line-height: 1.3;
+    white-space: nowrap
+}
+
+.chart-hover-tip.show {
+    display: block
+}
+
+.upload-panel {
+    display: none !important
+}
+
+.construction-page {
+    min-height: calc(100vh - 70px);
+    display: grid;
+    place-items: center;
+    padding: 34px
+}
+
+.construction-card {
+    position: relative;
+    overflow: hidden;
+    width: min(820px, 100%);
+    padding: 58px 50px;
+    text-align: center;
+    border: 1px solid #dce4ea;
+    border-radius: 24px;
+    background: linear-gradient(145deg, #fff, #f0f7f6);
+    box-shadow: 0 24px 60px rgba(15, 41, 66, .12)
+}
+
+.construction-card:before,
+.construction-card:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(2px)
+}
+
+.construction-card:before {
+    width: 210px;
+    height: 210px;
+    right: -80px;
+    top: -85px;
+    background: rgba(0, 163, 149, .12)
+}
+
+.construction-card:after {
+    width: 170px;
+    height: 170px;
+    left: -75px;
+    bottom: -80px;
+    background: rgba(168, 214, 80, .16)
+}
+
+.craft-icon {
+    position: relative;
+    margin: 0 auto 22px;
+    width: 82px;
+    height: 82px;
+    border-radius: 24px;
+    display: grid;
+    place-items: center;
+    background: #0b2940;
+    color: #b6e25c;
+    font-size: 34px;
+    box-shadow: 0 12px 26px rgba(11, 41, 64, .2)
+}
+
+.construction-card .overline {
+    display: block;
+    margin-bottom: 10px
+}
+
+.construction-card h1 {
+    position: relative;
+    font-size: 34px;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin: 0;
+    color: #0f2942
+}
+
+.construction-card h1 span {
+    color: #008f84
+}
+
+.construction-card>p {
+    position: relative;
+    max-width: 570px;
+    margin: 16px auto 25px;
+    color: #66778a;
+    font-size: 13px;
+    line-height: 1.7
+}
+
+.craft-progress {
+    position: relative;
+    max-width: 430px;
+    margin: 0 auto
+}
+
+.craft-progress>div {
+    height: 8px;
+    background: #dfe9e9;
+    border-radius: 10px;
+    overflow: hidden
+}
+
+.craft-progress i {
+    display: block;
+    width: 68%;
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #00a395, #a8d650);
+    animation: craftPulse 2.4s ease-in-out infinite
+}
+
+.craft-progress p {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0 0;
+    font-size: 9px;
+    color: #66808b
+}
+
+.craft-tags {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 27px
+}
+
+.craft-tags span {
+    padding: 7px 10px;
+    border: 1px solid #d7e5e5;
+    border-radius: 20px;
+    background: #fff;
+    color: #375665;
+    font-size: 9px;
+    font-weight: 700
+}
+
+@keyframes craftPulse {
+
+    0%,
+    100% {
+        width: 58%;
+        opacity: .8
+    }
+
+    50% {
+        width: 78%;
+        opacity: 1
+    }
+}
+
+@media(max-width:600px) {
+    .construction-page {
+        padding: 18px
+    }
+
+    .construction-card {
+        padding: 42px 20px
+    }
+
+    .construction-card h1 {
+        font-size: 26px
+    }
+
+    .chart-hover-tip {
+        max-width: 210px;
+        white-space: normal
+    }
+}
 
 /* Keep completed modules visible and hide the construction screen reliably. */
-#constructionDashboard.hide-module{display:none!important}
+#constructionDashboard.hide-module {
+    display: none !important
+}
 
 /* Animated back-to-top control */
-.back-to-top{position:fixed;right:25px;bottom:25px;z-index:90;width:48px;height:48px;border:1px solid rgba(181,228,93,.52);border-radius:15px;background:linear-gradient(145deg,#0b2940,#0d5d69);color:#b5e45d;display:grid;place-items:center;font-size:22px;font-weight:900;cursor:pointer;box-shadow:0 13px 30px rgba(9,39,61,.28);opacity:0;visibility:hidden;transform:translateY(18px) scale(.85);transition:opacity .25s ease,visibility .25s ease,transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .2s ease}
-.back-to-top.show{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
-.back-to-top:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 17px 34px rgba(9,39,61,.36)}
-.back-to-top:active{transform:translateY(-1px) scale(.96)}
-.back-to-top:before{content:"";position:absolute;inset:5px;border:1px solid rgba(255,255,255,.10);border-radius:11px}
-.back-to-top span{position:relative;animation:backTopArrow 1.55s ease-in-out infinite}
-@keyframes backTopArrow{0%,100%{transform:translateY(2px)}50%{transform:translateY(-3px)}}
-@media(max-width:760px){.back-to-top{right:16px;bottom:16px;width:44px;height:44px;border-radius:13px}}
-@media(prefers-reduced-motion:reduce){.back-to-top,.back-to-top span{transition:none;animation:none}}
+.back-to-top {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 90;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(181, 228, 93, .52);
+    border-radius: 15px;
+    background: linear-gradient(145deg, #0b2940, #0d5d69);
+    color: #b5e45d;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 13px 30px rgba(9, 39, 61, .28);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(18px) scale(.85);
+    transition: opacity .25s ease, visibility .25s ease, transform .25s cubic-bezier(.2, .8, .2, 1), box-shadow .2s ease
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1)
+}
+
+.back-to-top:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 17px 34px rgba(9, 39, 61, .36)
+}
+
+.back-to-top:active {
+    transform: translateY(-1px) scale(.96)
+}
+
+.back-to-top:before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 1px solid rgba(255, 255, 255, .10);
+    border-radius: 11px
+}
+
+.back-to-top span {
+    position: relative;
+    animation: backTopArrow 1.55s ease-in-out infinite
+}
+
+@keyframes backTopArrow {
+
+    0%,
+    100% {
+        transform: translateY(2px)
+    }
+
+    50% {
+        transform: translateY(-3px)
+    }
+}
+
+@media(max-width:760px) {
+    .back-to-top {
+        right: 16px;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+        border-radius: 13px
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    .back-to-top,
+    .back-to-top span {
+        transition: none;
+        animation: none
+    }
+}
+
+/* Modern production chart motion and surfaces */
+.production-chart {
+    background: linear-gradient(155deg, #fff 0%, #fbfdfd 72%, #f2faf8 100%);
+    box-shadow: 0 14px 34px rgba(14, 55, 72, .07)
+}
+
+.svg-chart .line-fill {
+    fill: url(#productionLineGradient);
+    opacity: .72
+}
+
+.svg-chart .line-fill.area-fill {
+    opacity: 1
+}
+
+.svg-chart .trend-line {
+    stroke: #008f84;
+    stroke-width: 4;
+    filter: drop-shadow(0 3px 5px rgba(0, 143, 132, .16));
+    stroke-dasharray: 4000;
+    stroke-dashoffset: 4000;
+    animation: chartLineDraw 1.1s ease-out forwards
+}
+
+.svg-chart circle {
+    filter: drop-shadow(0 2px 3px rgba(0, 143, 132, .18));
+    animation: chartPointIn .45s ease-out both
+}
+
+.svg-chart rect {
+    transform-box: fill-box;
+    transform-origin: center bottom;
+    animation: chartBarRise .62s cubic-bezier(.2, .75, .25, 1) both;
+    transition: opacity .16s, filter .16s, transform .16s
+}
+
+.svg-chart rect.mark-hover {
+    transform: translateY(-2px) scaleY(1.015)
+}
+
+@keyframes chartLineDraw {
+    to {
+        stroke-dashoffset: 0
+    }
+}
+
+@keyframes chartPointIn {
+    from {
+        opacity: 0;
+        transform: scale(.55)
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1)
+    }
+}
+
+@keyframes chartBarRise {
+    from {
+        opacity: .25;
+        transform: scaleY(.05)
+    }
+
+    to {
+        opacity: 1;
+        transform: scaleY(1)
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    .svg-chart .trend-line,
+    .svg-chart circle,
+    .svg-chart rect {
+        animation: none
+    }
+}
