@@ -20,6 +20,7 @@ DATA UPLOAD MODULE
 - Supports JSON, CSV, Excel, PDF and DOCX files.
 - Detects multiple tables in one Excel sheet and supports manual cell-range selection.
 - Recovers blank State/Category headers from merged titles and adjacent text columns.
+- Treats official missing markers such as -, —, NA and N/A as zero for numeric charts.
 - Quick mapping keeps Year/State/Category on the X-axis and numeric values on the Y-axis.
 - Accidental helper/conversion outliers in time-series data are highlighted and excluded by default.
 - Preview rows and the modern chart before updating Production charts, KPI cards or insights.

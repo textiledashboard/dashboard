@@ -1,0 +1,7 @@
+V31 — Automatic All Fibres Overview
+
+This update intentionally does not replace data.json.
+
+Keep your existing data.json file so that your uploaded Cotton, Silk, Jute, Wool, MMF and Handloom data remains safe.
+
+After replacing the code files, open Production → All Fibres Overview. The KPI cards and comparison chart will calculate automatically from the latest connected fibre trend data.

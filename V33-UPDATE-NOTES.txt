@@ -1,0 +1,10 @@
+V33 — Compact Background Image Banners
+
+- Fibre image now covers the full banner background.
+- Dark gradient keeps overlay text readable on every image.
+- Banner height is compact on desktop and responsive on mobile.
+- The first KPI appears in a glass-style card on the right.
+- Fibre selection automatically changes the banner image, content and KPI.
+- Existing automatic All Fibres calculations remain enabled.
+
+Keep a backup of your latest data.json before replacing the project folder.

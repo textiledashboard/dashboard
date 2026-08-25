@@ -1,0 +1,12 @@
+V32 — Fibre Visuals + Automatic All Fibres Overview
+
+1. Production fibre selector now changes the related banner image and content.
+2. Visuals are configured through image URLs in js/production.js.
+3. A clean themed fallback appears if an external image cannot load.
+4. Image reference links are included for traceability.
+5. All Fibres KPIs and comparison chart remain automatically connected to the latest fibre trend data.
+
+When local images are ready, replace each "src" URL inside fibreVisuals with a path such as:
+assets/images/cotton.jpg
+
+Before replacing an older project folder, keep a backup of its current data.json because that file contains published dashboard updates.

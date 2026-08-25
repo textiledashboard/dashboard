@@ -1,0 +1,12 @@
+V34 — Adaptive Visibility for All Charts
+
+- Production, Overview, Domestic Market and International Trade charts now use a shared adaptive scale engine.
+- Normal value ranges remain on the standard linear scale.
+- When the largest value is at least 25 times the smallest positive value, square-root visibility scaling activates automatically.
+- Small positive bars receive a minimum visible size.
+- Exact values remain available through chart tooltips.
+- Adaptive charts show a clear scale note inside the graph.
+- Grouped bars, standard bars, line charts, combo charts and stacked charts are covered.
+- The upload wizard chart preview uses the same visibility rules.
+
+Keep a backup of your latest data.json before replacing the project folder.
